@@ -7,8 +7,8 @@
     <script src="https://cdn.bootcdn.net/ajax/libs/sockjs-client/1.5.0/sockjs.js"></script>
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
-        // const url = "http://localhost:8081/";
-        const url = "http://106.54.174.38:8081/";
+        const url = "http://localhost:8081/";
+        // const url = "http://106.54.174.38:8081/";
         const picturePrefix = url+"static/";
         var user;
 
@@ -21,8 +21,8 @@
                 type : "get",
                 data:{},
                 success:function (date) {
-                    alert("欢迎"+date.userName+"进入聊天室");
                     document.getElementById("head").src = picturePrefix+date.headName;
+                    alert("欢迎"+date.userName+"进入聊天室");
                     user = date;
                 },
             });
@@ -150,7 +150,14 @@
     function showResponse(message) {
         // 接收返回的消息
         var response = $("#response");
-        response.append(message.userName +":"+ message.responseMessage + "<br/>");
+        user.headPath = message.userName+".jpg";
+        var content = '<div style="width: 100%;">' +
+            '<img src="' + picturePrefix+user.headPath + '" style="display: inline-block;height: 50px;width: 50px;"/>' +
+            '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;top: -30px;font-size: 22px;">' + message.userName +':'+ '</p>' +
+            '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;left: 55px;top: -30px;">' + message.responseMessage +
+            '</p>' +
+            '</div>';
+        response.append(content);
         //滚轮自动下滑
         sc();
     }
@@ -159,7 +166,7 @@
         if (message.isLogin === "true"){
             document.getElementById("loginUser").innerText = message.userName+"已上线！";
         }
-        else {
+        else if(message.isLogin === "false"){
             document.getElementById("loginUser").innerText = message.userName+"已下线！";
         }
         document.getElementById("loginNumber").innerText = message.number;

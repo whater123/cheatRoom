@@ -31,9 +31,9 @@ public class LoginShow {
         this.isLogin = isLogin;
     }
 
-    public LoginShow(String userName, int number) {
-        this.userName = userName;
+    public LoginShow(int number, String isLogin) {
         this.number = number;
+        this.isLogin = isLogin;
     }
 
     public String getUserName() {

@@ -6,8 +6,6 @@ import com.my.dao.UserMapper;
 import com.my.pojo.Client2ServerMessage;
 import com.my.pojo.LoginShow;
 import com.my.pojo.Server2ClientMessage;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -39,15 +37,21 @@ public class WebSocketController {
     @SendTo("/nasus/getLoginShow")
     public LoginShow userLoginShow(Principal principal, LoginShow isLogin){
         if ("true".equals(isLogin.getIsLogin())){
-            SystemConstant.LOGIN_NUMBER++;
-            return new LoginShow(principal.getName(), SystemConstant.LOGIN_NUMBER,"true");
+            if (SystemConstant.loginSet.contains(principal.getName())){
+                return new LoginShow(SystemConstant.loginSet.size(),"error");
+            }
+            else {
+                SystemConstant.loginSet.add(principal.getName());
+                return new LoginShow(principal.getName(), SystemConstant.loginSet.size(),"true");
+            }
         }
         else {
-            SystemConstant.LOGIN_NUMBER--;
-            return new LoginShow(principal.getName(), SystemConstant.LOGIN_NUMBER,"false");
+            if (!SystemConstant.loginSet.contains(principal.getName())){
+                return new LoginShow(SystemConstant.loginSet.size(),"error");
+            }else {
+                SystemConstant.loginSet.remove(principal.getName());
+                return new LoginShow(principal.getName(), SystemConstant.loginSet.size(),"false");
+            }
         }
     }
-
-
-
 }
