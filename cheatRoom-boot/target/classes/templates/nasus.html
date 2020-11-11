@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>最最最最简易的聊天室</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/sockjs-client/1.5.0/sockjs.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        // const url = "http://localhost:8081/";
+        const url = "http://106.54.174.38:8081/";
+        const picturePrefix = url+"static/";
+        var user;
+
+        window.addEventListener("beforeunload", function () {
+            sendLoginOutMassage();
+        });
+        function getM() {
+            $.ajax({
+                url:url+"user/getMessage",
+                type : "get",
+                data:{},
+                success:function (date) {
+                    alert("欢迎"+date.userName+"进入聊天室");
+                    document.getElementById("head").src = picturePrefix+date.headName;
+                    user = date;
+                },
+            });
+        }
+        function sc(){ document.getElementById("response").scrollTop=document.getElementById("response").scrollHeight;};
+    </script>
+    <script type="text/javascript">
+        var path;
+        $(function () {
+            $("#upload").click(function () {
+                if(confirm("修改头像将会刷新页面，消息记录将被清空！是否继续")){
+                    var formData = new FormData($('#uploadForm')[0]);
+                    $.ajax({
+                        type: 'post',
+                        url: url+"user/fileUpload", //上传文件的请求路径必须是绝对路劲
+                        data: formData,
+                        //ajax2.0可以不用设置请求头，但是jq帮我们自动设置了，这样的话需要我们自己取消掉
+                        contentType:false,
+                        //取消帮我们格式化数据，是什么就是什么
+                        processData:false,
+                    }).success(function (data) {
+                        alert("头像修改成功！即将刷新");
+                        location.reload();
+                    }).error(function () {
+                        alert("上传失败");
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+<body onload="connect()" onunload="sendLoginOutMassage()">
+<noscript><h2 style="color: #ff0000">貌似你的浏览器不支持websocket</h2></noscript>
+    <form id="uploadForm" enctype="multipart/form-data">
+        设置你的头像:<input id="file" type="file" name="file" required="required"/>
+    </form>
+    <button id="upload">上传头像</button><img src="?" id="head" style="width:100px;height:100px;"/><br/><br/>
+<div>
+    <div>
+        <button id="connect" onclick="connect();">连接</button>
+        <button id="disconnect" disabled="disabled" onclick="disconnect();">断开连接</button>
+        <button id="logout" onclick="logout()">取消记住密码并退出登录</button>
+    </div>
+    <br/>
+    <a id="loginUser" style="color: lightseagreen"></a><br/>
+    目前在线人数：<a id="loginNumber" style="color: lightseagreen"></a>
+    <div id="conversationDiv">
+        <p id="response" style="width:400px;height:400px;overflow:auto;"></p>
+        <label>输入你要发送的消息</label><input type="text" id="context" required="required"/><button id="sendName" onclick="sendName();">发送</button>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var stompClient = null;
+    document.addEventListener("keydown",enter);
+    function enter(event){
+        if(event.keyCode===13){//回车触发发送按键
+            sendName();
+        }
+    }
+    function setConnected(connected) {
+        document.getElementById('connect').disabled = connected;
+        document.getElementById('disconnect').disabled = !connected;
+        document.getElementById('conversationDiv').style.visibility = connected ? 'visible' : 'hidden';
+        $('#response').html();
+    }
+    function connect() {
+        getM();
+        // 连接 SockJs 的 endpoint 名称为 "/endpointNasus"
+        var socket = new SockJS('/endpointNasus');
+        // 使用 STOMP 子协议的 WebSocket 客户端
+        stompClient = Stomp.over(socket);
+        stompClient.connect({}, function(frame) {
+            setConnected(true);
+            console.log('Connected: ' + frame);
+            // 通过 stompClient.subscribe 订阅 /nasus/getResponse 目标发送的信息，对应控制器的 SendTo 定义
+            stompClient.subscribe('/nasus/getResponse', function(respnose){
+                // 展示返回的信息，只要订阅了 /nasus/getResponse 目标，都可以接收到服务端返回的信息
+                showResponse(JSON.parse(respnose.body));
+            });
+            stompClient.subscribe('/nasus/getLoginShow', function(respnose){
+                showLogin(JSON.parse(respnose.body));
+            });
+            //发送上线消息
+            sendLoginMassage();
+        });
+    }
+    function disconnect() {
+        // 断开连接
+        sendLoginOutMassage();
+        if (stompClient != null) {
+            stompClient.disconnect();
+        }
+        setConnected(false);
+        console.log("Disconnected");
+        // window.location.href="http://localhost:8081/toLogin";
+    }
+    function logout() {
+        sendLoginOutMassage();
+        $.ajax({
+            url:url+"logout",
+            type : "get",
+            data:{},
+            success:function (date) {
+                alert(date);
+            },
+        });
+        window.location.href=url+"toLogin";
+    }
+    function sendName() {
+        // 向服务端发送消息
+        var context = $('#context').val();
+        // 通过 stompClient.send 向 /hello （服务端）发送信息，对应控制器 @MessageMapping 中的定义
+        stompClient.send("/all", {}, JSON.stringify({ 'context': context }));
+        $('#context').val("");
+    }
+    function sendLoginMassage() {
+        // 向服务端发送上线消息
+        stompClient.send("/loginShow", {}, JSON.stringify({"isLogin":"true"}));
+    }
+    function sendLoginOutMassage() {
+        // 向服务端发送下线消息
+        stompClient.send("/loginShow", {}, JSON.stringify({"isLogin":"false"}));
+    }
+    function showResponse(message) {
+        // 接收返回的消息
+        var response = $("#response");
+        response.append(message.userName +":"+ message.responseMessage + "<br/>");
+        //滚轮自动下滑
+        sc();
+    }
+    function showLogin(message) {
+        // 接收上线消息
+        if (message.isLogin === "true"){
+            document.getElementById("loginUser").innerText = message.userName+"已上线！";
+        }
+        else {
+            document.getElementById("loginUser").innerText = message.userName+"已下线！";
+        }
+        document.getElementById("loginNumber").innerText = message.number;
+    }
+
+</script>
+</body>
+</html>

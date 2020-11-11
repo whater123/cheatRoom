@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>登录</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        // const url = "http://localhost:8081/";
+        const url = "http://106.54.174.38:8081/";
+        function login() {
+            $.ajax({
+                url:url+"login",
+                type : "post",
+                data:{"userName":$("#name").val(),"password":$("#password").val(),"rememberMe":$("#remember").val()},
+                success:function (date) {
+                    if (date === "欢迎登陆"){
+                        window.location.href=url+"user/nasus";
+                    }
+                    else if (date === "欢迎来到管理员页面"){
+                        window.open(url+"admin/nasus");
+                    }
+                    else {
+                        alert(date)
+                    }
+                },
+            });
+        }
+        function register() {
+            $.ajax({
+                url: url +"register",
+                type : "post",
+                data:{"userName":$("#name").val(),"password":$("#password").val()},
+                success:function (date) {
+                    alert(date);
+                },
+            });
+        }
+    </script>
+</head>
+<body>
+用户名：<label for="name"></label><input name="userName" type="text" id="name" required="required"/><br/>
+密码：<label for="password"></label><input name="password" type="password" id="password" required="required"/><br/>
+<label for="remember"></label><input name="rememberMe" type="checkbox" id="remember" value="true"/>记住密码<br/>
+<button id="login" onclick="login()">登录</button><button id="register" onclick="register()">注册</button>
+
+</body>
+</html>
