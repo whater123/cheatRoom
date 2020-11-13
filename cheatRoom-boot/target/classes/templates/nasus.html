@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
     <title>最最最最简易的聊天室</title>
     <script src="https://cdn.bootcdn.net/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/sockjs-client/1.5.0/sockjs.js"></script>
@@ -11,6 +10,7 @@
         // const url = "http://106.54.174.38:8081/";
         const picturePrefix = url+"static/";
         var user;
+        var key = Math.random();
 
         window.addEventListener("beforeunload", function () {
             sendLoginOutMassage();
@@ -21,7 +21,7 @@
                 type : "get",
                 data:{},
                 success:function (date) {
-                    document.getElementById("head").src = picturePrefix+date.headName;
+                    document.getElementById("head").src = picturePrefix+date.headName+"?"+key;
                     alert("欢迎"+date.userName+"进入聊天室");
                     user = date;
                 },
@@ -33,23 +33,22 @@
         var path;
         $(function () {
             $("#upload").click(function () {
-                if(confirm("修改头像将会刷新页面，消息记录将被清空！是否继续")){
-                    var formData = new FormData($('#uploadForm')[0]);
-                    $.ajax({
-                        type: 'post',
-                        url: url+"user/fileUpload", //上传文件的请求路径必须是绝对路劲
-                        data: formData,
-                        //ajax2.0可以不用设置请求头，但是jq帮我们自动设置了，这样的话需要我们自己取消掉
-                        contentType:false,
-                        //取消帮我们格式化数据，是什么就是什么
-                        processData:false,
-                    }).success(function (data) {
-                        alert("头像修改成功！即将刷新");
-                        location.reload();
-                    }).error(function () {
-                        alert("上传失败");
-                    });
-                }
+                var formData = new FormData($('#uploadForm')[0]);
+                $.ajax({
+                    type: 'post',
+                    url: url+"user/fileUpload", //上传文件的请求路径必须是绝对路劲
+                    data: formData,
+                    //ajax2.0可以不用设置请求头，但是jq帮我们自动设置了，这样的话需要我们自己取消掉
+                    contentType:false,
+                    //取消帮我们格式化数据，是什么就是什么
+                    processData:false,
+                }).success(function (data) {
+                    key = Math.random();
+                    document.getElementById("head").src = picturePrefix+data+"?"+key;
+                    alert("头像修改成功");
+                }).error(function () {
+                    alert("上传失败");
+                });
             });
         });
     </script>
@@ -101,10 +100,16 @@
             // 通过 stompClient.subscribe 订阅 /nasus/getResponse 目标发送的信息，对应控制器的 SendTo 定义
             stompClient.subscribe('/nasus/getResponse', function(respnose){
                 // 展示返回的信息，只要订阅了 /nasus/getResponse 目标，都可以接收到服务端返回的信息
-                showResponse(JSON.parse(respnose.body));
+                if (respnose.body!==null){
+                    showResponse(JSON.parse(respnose.body));
+                }
             });
             stompClient.subscribe('/nasus/getLoginShow', function(respnose){
                 showLogin(JSON.parse(respnose.body));
+            });
+            stompClient.subscribe('/nasus/adminControl', function(respnose){
+                //管理员强制刷新页面
+                location.reload();
             });
             //发送上线消息
             sendLoginMassage();
@@ -150,7 +155,7 @@
     function showResponse(message) {
         // 接收返回的消息
         var response = $("#response");
-        user.headPath = message.userName+".jpg";
+        user.headPath = message.userName+".jpg"+"?"+key;
         var content = '<div style="width: 100%;">' +
             '<img src="' + picturePrefix+user.headPath + '" style="display: inline-block;height: 50px;width: 50px;"/>' +
             '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;top: -30px;font-size: 22px;">' + message.userName +':'+ '</p>' +

@@ -2,40 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="947ecbf8-5e1f-4e59-9a40-8e73ee340b60" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/constant/SystemConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/constant/SystemConstant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/controller/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/my/controller/WebSocketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/controller/WebSocketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pojo/LoginShow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/pojo/LoginShow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/nasus.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/nasus.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/nasus2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/nasus2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/TestPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestPoint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/cheatRoom-boot.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/Config/ShiroConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/Config/ShiroConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/Config/ViewConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/Config/WebSocketConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/HelloWord.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/War.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/constant/LoginQQConstant.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/constant/SystemConstant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/constant/SystemConstant.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/my/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/controller/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/controller/ExceptionController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/controller/ExceptionController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/controller/LoginController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/controller/ViewController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/my/controller/WebSocketController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/controller/WebSocketController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/controller/WebSocketController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/pojo/Client2ServerMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/pojo/LoginShow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/pojo/LoginShow.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/pojo/Server2ClientMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/nasus.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/nasus.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/META-INF/cheatRoom-boot.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/nasus2.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/nasus2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/TestPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestPoint.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -134,7 +112,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.HelloWord (1)">
+  <component name="RunManager" selected="Application.TestPoint">
     <configuration name="TestPoint" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TestPoint" />
       <module name="cheatRoom-boot" />
@@ -178,8 +156,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.HelloWord (1)" />
         <item itemvalue="Application.TestPoint" />
+        <item itemvalue="Spring Boot.HelloWord (1)" />
         <item itemvalue="Spring Boot.HelloWord" />
       </list>
     </recent_temporary>
@@ -193,11 +171,6 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
             </expand>
             <select />
@@ -256,7 +229,8 @@
       <workItem from="1605073766554" duration="12897000" />
       <workItem from="1605088501711" duration="125000" />
       <workItem from="1605090492761" duration="3541000" />
-      <workItem from="1605095342764" duration="3278000" />
+      <workItem from="1605095342764" duration="13800000" />
+      <workItem from="1605180921901" duration="2767000" />
     </task>
     <servers />
   </component>
@@ -292,38 +266,38 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605067294904" />
-    <state width="887" height="115" key="GridCell.Tab.0.bottom" timestamp="1605099077476">
+    <state width="1298" height="162" key="GridCell.Tab.0.bottom" timestamp="1605188588204">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="887" height="115" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605099077476" />
-    <state width="887" height="115" key="GridCell.Tab.0.center" timestamp="1605099077475">
+    <state width="1298" height="162" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605188588204" />
+    <state width="1298" height="162" key="GridCell.Tab.0.center" timestamp="1605188588204">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="887" height="115" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605099077475" />
-    <state width="887" height="115" key="GridCell.Tab.0.left" timestamp="1605099077475">
+    <state width="1298" height="162" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605188588204" />
+    <state width="1298" height="162" key="GridCell.Tab.0.left" timestamp="1605188588204">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="887" height="115" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605099077475" />
-    <state width="887" height="115" key="GridCell.Tab.0.right" timestamp="1605099077476">
+    <state width="1298" height="162" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605188588204" />
+    <state width="1298" height="162" key="GridCell.Tab.0.right" timestamp="1605188588204">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="887" height="115" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605099077476" />
-    <state width="887" height="115" key="GridCell.Tab.1.bottom" timestamp="1605099077476">
+    <state width="1298" height="162" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605188588204" />
+    <state width="1024" height="212" key="GridCell.Tab.1.bottom" timestamp="1605112526024">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="887" height="115" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605099077476" />
-    <state width="887" height="115" key="GridCell.Tab.1.center" timestamp="1605099077476">
+    <state width="1024" height="212" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605112526024" />
+    <state width="1024" height="212" key="GridCell.Tab.1.center" timestamp="1605112526024">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="887" height="115" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1605099077476" />
-    <state width="887" height="115" key="GridCell.Tab.1.left" timestamp="1605099077476">
+    <state width="1024" height="212" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1605112526024" />
+    <state width="1024" height="212" key="GridCell.Tab.1.left" timestamp="1605112526024">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="887" height="115" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1605099077476" />
-    <state width="887" height="115" key="GridCell.Tab.1.right" timestamp="1605099077476">
+    <state width="1024" height="212" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1605112526024" />
+    <state width="1024" height="212" key="GridCell.Tab.1.right" timestamp="1605112526024">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="887" height="115" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1605099077476" />
+    <state width="1024" height="212" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1605112526024" />
     <state x="299" y="70" key="Maven.ArtifactSearchDialog" timestamp="1604306570835">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -336,9 +310,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" width="672" height="677" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1604643241905" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1605096838643">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1605108630043">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1605096838643" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1605108630043" />
   </component>
 </project>

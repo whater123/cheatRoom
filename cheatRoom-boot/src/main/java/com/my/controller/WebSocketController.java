@@ -30,6 +30,9 @@ public class WebSocketController {
         if ("admin".equals(role)){
             return new Server2ClientMessage("<span style=\"color: #ff0c0c;\">" +"站长sama</span>" ,context.getContext());
         }
+        if ("".equals(context.getContext())){
+            return null;
+        }
         return new Server2ClientMessage(principal.getName(),context.getContext());
     }
 
@@ -53,5 +56,11 @@ public class WebSocketController {
                 return new LoginShow(principal.getName(), SystemConstant.loginSet.size(),"false");
             }
         }
+    }
+
+    @MessageMapping("/admin")
+    @SendTo("/nasus/adminControl")
+    public int adminControl(){
+        return 1;
     }
 }

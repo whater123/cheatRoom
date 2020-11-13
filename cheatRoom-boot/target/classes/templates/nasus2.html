@@ -1,75 +1,63 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="javascrept">
 <head>
     <meta charset="UTF-8" />
-    <title>最最最最简易的聊天室</title>
+    <title>管理员页面</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/sockjs-client/1.5.0/sockjs.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>alert("欢迎管理员登录！")</script>
+    <script>
+        const url = "http://localhost:8081/";
+        // const url = "http://106.54.174.38:8081/";
+
+        function getM() {
+            $.ajax({
+                url:url+"admin/getOnline",
+                type : "get",
+                cache:false,
+                data:{},
+                success:function (date) {
+                    document.getElementById("member").innerText = JSON.stringify(date);
+                },
+            });
+        }
+        function setM() {
+            $.ajax({
+                url:url+"admin/setDefault",
+                type : "post",
+                cache:false,
+                data:{"userName":$("#userName").val()},
+                success:function (date) {
+                    alert(date);
+                },
+            });
+        }
+        function connect() {
+            // 连接 SockJs 的 endpoint 名称为 "/endpointNasus"
+            var socket = new SockJS('/endpointNasus');
+            // 使用 STOMP 子协议的 WebSocket 客户端
+            stompClient = Stomp.over(socket);
+            // stompClient.connect({}, function(frame) {
+            //     stompClient.subscribe('/nasus/adminControl', function(respnose){
+            //         //管理员强制刷新页面
+            //         location.reload();
+            //     });
+            // });
+        }
+
+        function sendAdminControl() {
+            // 管理员强制刷新页面
+            stompClient.send("/admin", {}, {});
+            alert("操作成功");
+        }
+    </script>
 </head>
 <body onload="connect()">
-<noscript><h2 style="color: #ff0000">貌似你的浏览器不支持websocket</h2></noscript>
-<div>
-    <div>
-        <button id="connect" onclick="connect();">连接</button>
-        <button id="disconnect" disabled="disabled" onclick="disconnect();">断开连接</button>
-    </div>
-    <div id="conversationDiv">
-        <label>输入你要发送的消息</label><input type="text" id="context" />
-        <button id="sendName" onclick="sendName();">发送</button>
-        <p id="response"></p>
-    </div>
-</div>
-<script src="https://cdn.bootcdn.net/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/sockjs-client/1.5.0/sockjs.js"></script>
-<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script type="text/javascript">
-    var stompClient = null;
-
-    function setConnected(connected) {
-        document.getElementById('connect').disabled = connected;
-        document.getElementById('disconnect').disabled = !connected;
-        document.getElementById('conversationDiv').style.visibility = connected ? 'visible' : 'hidden';
-        $('#response').html();
-    }
-
-    function connect() {
-        // 连接 SockJs 的 endpoint 名称为 "/endpointNasus"
-        var socket = new SockJS('/endpointNasus');
-        // 使用 STOMP 子协议的 WebSocket 客户端
-        stompClient = Stomp.over(socket);
-        stompClient.connect({}, function(frame) {
-            setConnected(true);
-            console.log('Connected: ' + frame);
-            // 通过 stompClient.subscribe 订阅 /nasus/getResponse 目标发送的信息，对应控制器的 SendTo 定义
-            stompClient.subscribe('/nasus/getResponse', function(respnose){
-                // 展示返回的信息，只要订阅了 /nasus/getResponse 目标，都可以接收到服务端返回的信息
-                showResponse(JSON.parse(respnose.body));
-            });
-        });
-    }
-
-
-    function disconnect() {
-        // 断开连接
-        if (stompClient != null) {
-            stompClient.disconnect();
-        }
-        setConnected(false);
-        console.log("Disconnected");
-    }
-
-    function sendName() {
-        // 向服务端发送消息
-        var context = $('#context').val();
-        // 通过 stompClient.send 向 /hello （服务端）发送信息，对应控制器 @MessageMapping 中的定义
-        stompClient.send("/all", {}, JSON.stringify({ 'context': context}));
-    }
-
-    function showResponse(message) {
-        // 接收返回的消息
-        var response = $("#response");
-        response.append(message.userName +":"+ message.responseMessage + "<br/>");
-    }
-</script>
-
+<button id="show" onclick="getM()">显示所有在线成员列表</button>
+<p id="member"></p><br/><br/>
+请输入取消头像设置的用户名：<label for="userName"></label><input type="text" name="userName" id="userName"/>
+<button id="default" onclick="setM()">确定</button><br/><br/>
+<button id="reload" onclick="sendAdminControl()">全体用户刷新</button><br/><br/>
 </body>
 </html>
