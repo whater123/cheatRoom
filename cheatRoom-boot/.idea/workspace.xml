@@ -2,16 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="947ecbf8-5e1f-4e59-9a40-8e73ee340b60" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/46ee4e45-e02e-46f3-abc7-7943a64f8261.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/46ee4e45-e02e-46f3-abc7-7943a64f8261.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/controller/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/Config/WebSocketConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/Config/WebSocketConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/my/controller/WebSocketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/controller/WebSocketController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pojo/Server2ClientMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/pojo/Chat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/nasus.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/nasus.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/nasus2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/nasus2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/TestPoint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/TestPoint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/controller/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/my/Config/WebSocketConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/Config/WebSocketConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/my/constant/SystemConstant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/constant/SystemConstant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/my/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/controller/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/my/controller/WebSocketController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/controller/WebSocketController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/my/pojo/Server2ClientMessage.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/nasus.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/nasus.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/nasus2.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/nasus2.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/TestPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/TestPoint.class" afterDir="false" />
@@ -32,7 +42,12 @@
     <option name="HIDDEN_KINDS">
       <set />
     </option>
-    <expand />
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="together@106.54.174.38" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
     <select />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -46,6 +61,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="E:\Git\cheat\cheatRoom-boot\.idea" />
+      </set>
+    </option>
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -112,7 +134,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TestPoint">
+  <component name="RunManager" selected="Spring Boot.HelloWord (1)">
     <configuration name="TestPoint" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="TestPoint" />
       <module name="cheatRoom-boot" />
@@ -156,8 +178,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TestPoint" />
         <item itemvalue="Spring Boot.HelloWord (1)" />
+        <item itemvalue="Application.TestPoint" />
         <item itemvalue="Spring Boot.HelloWord" />
       </list>
     </recent_temporary>
@@ -171,6 +193,11 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
             </expand>
             <select />
@@ -231,6 +258,12 @@
       <workItem from="1605090492761" duration="3541000" />
       <workItem from="1605095342764" duration="13800000" />
       <workItem from="1605180921901" duration="2767000" />
+      <workItem from="1605244041721" duration="267000" />
+      <workItem from="1605323419509" duration="750000" />
+      <workItem from="1605446981944" duration="27000" />
+      <workItem from="1605506368021" duration="7847000" />
+      <workItem from="1605516246423" duration="3463000" />
+      <workItem from="1605521109644" duration="2003000" />
     </task>
     <servers />
   </component>
@@ -250,54 +283,54 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="74" key="#Project_Structure/0.0.1536.824@0.0.1536.824" timestamp="1604486292948" />
-    <state x="374" y="70" width="897" height="683" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604806390279">
+    <state x="374" y="70" width="897" height="683" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605244103079">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="374" y="70" width="897" height="683" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1604806390279" />
-    <state x="574" y="121" key="#com.intellij.ide.util.MemberChooser" timestamp="1605097934558">
+    <state x="374" y="70" width="897" height="683" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1605244103079" />
+    <state x="574" y="121" key="#com.intellij.ide.util.MemberChooser" timestamp="1605514013721">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="121" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1605097934558" />
-    <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605076157275">
+    <state x="574" y="121" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1605514013721" />
+    <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605511185162">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1605076157275" />
-    <state x="549" y="170" key="FileChooserDialogImpl" timestamp="1605067294904">
+    <state x="499" y="162" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1605511185162" />
+    <state x="549" y="170" key="FileChooserDialogImpl" timestamp="1605447007631">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605067294904" />
-    <state width="1298" height="162" key="GridCell.Tab.0.bottom" timestamp="1605188588204">
+    <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1605447007631" />
+    <state width="1493" height="318" key="GridCell.Tab.0.bottom" timestamp="1605523846376">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1298" height="162" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605188588204" />
-    <state width="1298" height="162" key="GridCell.Tab.0.center" timestamp="1605188588204">
+    <state width="1493" height="318" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605523846376" />
+    <state width="1493" height="318" key="GridCell.Tab.0.center" timestamp="1605523846375">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1298" height="162" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605188588204" />
-    <state width="1298" height="162" key="GridCell.Tab.0.left" timestamp="1605188588204">
+    <state width="1493" height="318" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1605523846375" />
+    <state width="1493" height="318" key="GridCell.Tab.0.left" timestamp="1605523846375">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1298" height="162" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605188588204" />
-    <state width="1298" height="162" key="GridCell.Tab.0.right" timestamp="1605188588204">
+    <state width="1493" height="318" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1605523846375" />
+    <state width="1493" height="318" key="GridCell.Tab.0.right" timestamp="1605523846375">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1298" height="162" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605188588204" />
-    <state width="1024" height="212" key="GridCell.Tab.1.bottom" timestamp="1605112526024">
+    <state width="1493" height="318" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1605523846375" />
+    <state width="1024" height="210" key="GridCell.Tab.1.bottom" timestamp="1605523846372">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="212" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605112526024" />
-    <state width="1024" height="212" key="GridCell.Tab.1.center" timestamp="1605112526024">
+    <state width="1024" height="210" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1605523846372" />
+    <state width="1024" height="210" key="GridCell.Tab.1.center" timestamp="1605523846372">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="212" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1605112526024" />
-    <state width="1024" height="212" key="GridCell.Tab.1.left" timestamp="1605112526024">
+    <state width="1024" height="210" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1605523846372" />
+    <state width="1024" height="210" key="GridCell.Tab.1.left" timestamp="1605523846371">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="212" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1605112526024" />
-    <state width="1024" height="212" key="GridCell.Tab.1.right" timestamp="1605112526024">
+    <state width="1024" height="210" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1605523846371" />
+    <state width="1024" height="210" key="GridCell.Tab.1.right" timestamp="1605523846372">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="212" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1605112526024" />
+    <state width="1024" height="210" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1605523846372" />
     <state x="299" y="70" key="Maven.ArtifactSearchDialog" timestamp="1604306570835">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

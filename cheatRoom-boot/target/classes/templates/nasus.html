@@ -6,8 +6,8 @@
     <script src="https://cdn.bootcdn.net/ajax/libs/sockjs-client/1.5.0/sockjs.js"></script>
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
-        const url = "http://localhost:8081/";
-        // const url = "http://106.54.174.38:8081/";
+        // const url = "http://localhost:8081/";
+        const url = "http://106.54.174.38:8081/";
         const picturePrefix = url+"static/";
         var user;
         var key = Math.random();
@@ -65,12 +65,14 @@
         <button id="disconnect" disabled="disabled" onclick="disconnect();">断开连接</button>
         <button id="logout" onclick="logout()">取消记住密码并退出登录</button>
     </div>
+    <button id="getList" onclick="getOnlineList()">获取在线名单</button>
     <br/>
     <a id="loginUser" style="color: lightseagreen"></a><br/>
     目前在线人数：<a id="loginNumber" style="color: lightseagreen"></a>
     <div id="conversationDiv">
         <p id="response" style="width:400px;height:400px;overflow:auto;"></p>
-        <label>输入你要发送的消息</label><input type="text" id="context" required="required"/><button id="sendName" onclick="sendName();">发送</button>
+        请输入私聊目标用户名（默认为群发）：<input type="text" id="toUserName"/>
+        请输入发送内容：<input type="text" id="context" required="required"/><button id="sendName" onclick="sendName();">发送</button>
     </div>
 </div>
 
@@ -102,6 +104,12 @@
                 // 展示返回的信息，只要订阅了 /nasus/getResponse 目标，都可以接收到服务端返回的信息
                 if (respnose.body!==null){
                     showResponse(JSON.parse(respnose.body));
+                }
+            });
+            stompClient.subscribe('/user/siChat/send', function(chat){
+                // 展示私聊信息
+                if (chat.body!==null){
+                    showResponse(JSON.parse(chat.body));
                 }
             });
             stompClient.subscribe('/nasus/getLoginShow', function(respnose){
@@ -137,12 +145,34 @@
         });
         window.location.href=url+"toLogin";
     }
+    function getOnlineList() {
+        $.ajax({
+            url: url + "user/getOnlineList",
+            type: "get",
+            data: {},
+            success: function (date) {
+                alert(date);
+            },
+        });
+    }
     function sendName() {
         // 向服务端发送消息
         var context = $('#context').val();
-        // 通过 stompClient.send 向 /hello （服务端）发送信息，对应控制器 @MessageMapping 中的定义
-        stompClient.send("/all", {}, JSON.stringify({ 'context': context }));
-        $('#context').val("");
+        var toUserName = $('#toUserName').val();
+        if (toUserName===user.userName){
+            alert("建议自言自语^_^");
+        }
+        else {
+            if (toUserName === ""){
+                // 通过 stompClient.send 向 /hello （服务端）发送信息，对应控制器 @MessageMapping 中的定义
+                stompClient.send("/all", {}, JSON.stringify({ 'context': context }));
+                $('#context').val("");
+            }
+            else {
+                stompClient.send("/send", {}, JSON.stringify({ 'responseMessage': context,'toUserName': toUserName }));
+                $('#context').val("");
+            }
+        }
     }
     function sendLoginMassage() {
         // 向服务端发送上线消息
@@ -153,15 +183,36 @@
         stompClient.send("/loginShow", {}, JSON.stringify({"isLogin":"false"}));
     }
     function showResponse(message) {
-        // 接收返回的消息
         var response = $("#response");
         user.headPath = message.userName+".jpg"+"?"+key;
-        var content = '<div style="width: 100%;">' +
-            '<img src="' + picturePrefix+user.headPath + '" style="display: inline-block;height: 50px;width: 50px;"/>' +
-            '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;top: -30px;font-size: 22px;">' + message.userName +':'+ '</p>' +
-            '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;left: 55px;top: -30px;">' + message.responseMessage +
-            '</p>' +
-            '</div>';
+        var content;
+        // 接收返回的消息
+        if (message.toUserName!==null){
+            if (message.userName===user.userName){
+                content = '<div style="width: 100%;">' +
+                    '<p style=" width:300px;font-size: 12px;margin:0 0;">' +'[私聊给'+ message.toUserName +']'+ '</p>' +
+                    '<img src="' + picturePrefix+user.headPath + '" style="display: inline-block;height: 50px;width: 50px;"/>' +
+                    '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;top: -30px;font-size: 22px;">' + message.userName +':'+ '</p>' +
+                    '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;left: 55px;top: -30px;">' + message.responseMessage +
+                    '</p>' +
+                    '</div>';
+            }else {
+                content = '<div style="width: 100%;">' +
+                    '<p style=" width:300px;font-size: 12px;margin:0 0;">' +'[来自私聊]'+ '</p>' +
+                    '<img src="' + picturePrefix+user.headPath + '" style="display: inline-block;height: 50px;width: 50px;"/>' +
+                    '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;top: -30px;font-size: 22px;">' + message.userName +':'+ '</p>' +
+                    '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;left: 55px;top: -30px;">' + message.responseMessage +
+                    '</p>' +
+                    '</div>';
+            }
+        }else {
+            content = '<div style="width: 100%;">' +
+                '<img src="' + picturePrefix+user.headPath + '" style="display: inline-block;height: 50px;width: 50px;"/>' +
+                '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;top: -30px;font-size: 22px;">' + message.userName +':'+ '</p>' +
+                '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;left: 55px;top: -30px;">' + message.responseMessage +
+                '</p>' +
+                '</div>';
+        }
         response.append(content);
         //滚轮自动下滑
         sc();

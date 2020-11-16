@@ -9,9 +9,13 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.xml.soap.SAAJResult;
 import java.io.File;
 import java.io.IOException;
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 /**
@@ -60,5 +64,11 @@ public class UserController{
             e.printStackTrace();
         }
         return fileName;
+    }
+
+    @RequestMapping(value = "/getOnlineList",method = RequestMethod.GET)
+    public String[] getOnlineList(){
+        String[] strings1 = new String[0];
+        return SystemConstant.loginSet.toArray(strings1);
     }
 }
