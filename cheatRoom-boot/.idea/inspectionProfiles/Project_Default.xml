@@ -1,6 +1,46 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
     <option name="myName" value="Project Default" />
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="8">
+            <item index="0" class="java.lang.String" itemvalue="th:text" />
+            <item index="1" class="java.lang.String" itemvalue="th:each" />
+            <item index="2" class="java.lang.String" itemvalue="th:src" />
+            <item index="3" class="java.lang.String" itemvalue="th:value" />
+            <item index="4" class="java.lang.String" itemvalue="th:switch" />
+            <item index="5" class="java.lang.String" itemvalue="th:case" />
+            <item index="6" class="java.lang.String" itemvalue="th:action" />
+            <item index="7" class="java.lang.String" itemvalue="th:if" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="14">
+            <item index="0" class="java.lang.String" itemvalue="nobr" />
+            <item index="1" class="java.lang.String" itemvalue="noembed" />
+            <item index="2" class="java.lang.String" itemvalue="comment" />
+            <item index="3" class="java.lang.String" itemvalue="noscript" />
+            <item index="4" class="java.lang.String" itemvalue="embed" />
+            <item index="5" class="java.lang.String" itemvalue="script" />
+            <item index="6" class="java.lang.String" itemvalue="form" />
+            <item index="7" class="java.lang.String" itemvalue="button" />
+            <item index="8" class="java.lang.String" itemvalue="tr" />
+            <item index="9" class="java.lang.String" itemvalue="p" />
+            <item index="10" class="java.lang.String" itemvalue="br" />
+            <item index="11" class="java.lang.String" itemvalue="div" />
+            <item index="12" class="java.lang.String" itemvalue="td" />
+            <item index="13" class="java.lang.String" itemvalue="strong" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
     <inspection_tool class="JavaDoc" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="TOP_LEVEL_CLASS_OPTIONS">
         <value>
@@ -31,6 +71,9 @@
       <option name="IGNORE_DUPLICATED_THROWS" value="false" />
       <option name="IGNORE_POINT_TO_ITSELF" value="false" />
       <option name="myAdditionalJavadocTags" value="date" />
+    </inspection_tool>
+    <inspection_tool class="RequiredAttributes" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myAdditionalRequiredHtmlAttributes" value="src" />
     </inspection_tool>
   </profile>
 </component>

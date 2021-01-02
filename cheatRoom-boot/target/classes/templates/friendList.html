@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>好友列表</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+</head>
+<body>
+<input type="hidden" th:value="${myInfo.userId}" id="userId"/>
+<button><a href="/user/toNasus">返回</a></button><br/>
+<tr  th:each="user,userStat : ${friendList}">
+    <div style="width: 100%;margin: 10px 0;">
+        <form action="/user/toFriendChat">
+            <button th:value="${user.user.userId}" th:text="${user.user.userName}" name="userId" type="submit"></button> 加好友时间：<a th:text="${user.friendTime}"></a><br/>
+        </form>
+    </div>
+</tr>
+</body>
+</html>

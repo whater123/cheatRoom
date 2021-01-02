@@ -1,8 +1,9 @@
 package com.my.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.my.dao.FriendMapper;
 import com.my.dao.UserMapper;
-import com.my.pojo.User;
+import com.my.pojo.base.User;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
@@ -20,6 +21,8 @@ import org.springframework.web.bind.annotation.RestController;
 public class LoginController {
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    private FriendMapper friendMapper;
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout() {

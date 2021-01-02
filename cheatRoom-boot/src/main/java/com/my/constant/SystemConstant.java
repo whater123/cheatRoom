@@ -13,4 +13,5 @@ public class SystemConstant {
     public static String picturePath = "E:\\headPicture\\";
 //    public static String picturePath = "/root/headPicture/";
     public static Set<String> loginSet = new HashSet<>();
+    public static boolean openRedis = false;
 }

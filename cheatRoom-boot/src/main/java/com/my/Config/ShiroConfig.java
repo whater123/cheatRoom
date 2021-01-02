@@ -42,6 +42,13 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/login", "anon");
         filterChainDefinitionMap.put("/logout", "anon");
         filterChainDefinitionMap.put("/toLogin", "anon");
+        filterChainDefinitionMap.put("/toIndex", "anon");
+
+        filterChainDefinitionMap.put("/images/**","anon");
+        filterChainDefinitionMap.put("/css/**","anon");
+        filterChainDefinitionMap.put("/js/**","anon");
+        filterChainDefinitionMap.put("/static/**","anon");
+
         filterChainDefinitionMap.put("/register", "anon");
         //大坑啊！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
         filterChainDefinitionMap.put("/endpointNasus/**", "anon");

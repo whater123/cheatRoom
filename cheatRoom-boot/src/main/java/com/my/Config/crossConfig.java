@@ -69,7 +69,7 @@ public class crossConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry resourceHandlerRegistry) {
-
+        resourceHandlerRegistry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
     }
 
     @Override

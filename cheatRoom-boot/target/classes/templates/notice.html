@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>通知页面</title>
+</head>
+<body style="text-align:center;" >
+<button><a href="/user/toNasus">返回聊天室</a></button>
+<button><a href="/user/getAllNotices">返回通知列表</a></button><br/><br/>
+<h1 th:text="${notice.noticeTitle}"></h1><br/>
+发布时间：<a th:text="${notice.noticeTime}"></a><br/>
+阅读次数：<a th:text="${notice.noticeReadCount}"></a><br/>
+<h3 th:text="${notice.noticeContext}"></h3>
+<a th:text="${msg}" style="color: #ff0c0c"></a>
+</body>
+</html>

@@ -10,6 +10,8 @@
     <script>
         const url = "http://localhost:8081/";
         // const url = "http://106.54.174.38:8081/";
+        // const url = "http://www.rainruner.com:8081/";
+        var stompClient = null;
 
         function getM() {
             $.ajax({
@@ -38,18 +40,42 @@
             var socket = new SockJS('/endpointNasus');
             // 使用 STOMP 子协议的 WebSocket 客户端
             stompClient = Stomp.over(socket);
-            // stompClient.connect({}, function(frame) {
-            //     stompClient.subscribe('/nasus/adminControl', function(respnose){
-            //         //管理员强制刷新页面
-            //         location.reload();
-            //     });
-            // });
+            stompClient.connect({}, function(frame) {
+                stompClient.subscribe('/nasus/adminControl', function(respnose){
+                    //接收管理员通知
+                    var notice = JSON.parse(respnose.body);
+                    if (notice!==null) {
+                        testInner(notice.noticeId,notice.noticeTitle)
+                    }
+                });
+            });
         }
 
         function sendAdminControl() {
-            // 管理员强制刷新页面
-            stompClient.send("/admin", {}, {});
-            alert("操作成功");
+            // 管理员发布公告
+            stompClient.send("/admin", {}, JSON.stringify({"noticeTitle":$("#noticeTitle").val(),"noticeContext":$("#noticeContext").val()}));
+            alert("发布成功");
+        }
+        function changeRedis() {
+            $.ajax({
+                url:url+"admin/changeRedis",
+                type : "post",
+                cache:false,
+                data:{},
+                success:function (date) {
+                    alert(date);
+                },
+            });
+        }
+        function getVipKey() {
+            $.ajax({
+                url:url+"admin/getVipKey",
+                type : "get",
+                data:{},
+                success:function (date) {
+                    document.getElementById("newKey").innerText = date;
+                },
+            });
         }
     </script>
 </head>
@@ -58,6 +84,11 @@
 <p id="member"></p><br/><br/>
 请输入取消头像设置的用户名：<label for="userName"></label><input type="text" name="userName" id="userName"/>
 <button id="default" onclick="setM()">确定</button><br/><br/>
-<button id="reload" onclick="sendAdminControl()">全体用户刷新</button><br/><br/>
+<button onclick="changeRedis()">开启/关闭存储历史记录</button><br/><br/>
+<input type="text" id="noticeTitle" placeholder="公告标题"/>
+<input type="text" id="noticeContext" placeholder="公告标题"/>
+<button id="reload" onclick="sendAdminControl()">发布公告</button><br/><br/>
+<button onclick="getVipKey()">生成会员秘钥</button><a id="newKey" style="color: #0F9E5E"></a><br/>
+<button onclick="window.open(url+'admin/getAllKeys');">查看所有生成的秘钥</button>
 </body>
 </html>

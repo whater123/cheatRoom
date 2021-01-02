@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>最最最最简易的聊天室</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <link rel="stylesheet" href="../static/css/sidebar.css"/>
+    <link href="../static/css/demo-page.css" rel="stylesheet" media="all"/>
+    <link href="../static/css/hover.css" rel="stylesheet" media="all"/>
+    <script src="../static/js/d-toast.min.js" type="text/javascript" charset="UTF-8"></script>
+    <link href="http://www.jq22.com/jquery/font-awesome.4.6.0.css" rel="stylesheet" media="all"/>
+    <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="../static/js/sidebar.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/sockjs-client/1.5.0/sockjs.js"></script>
     <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
         const url = "http://localhost:8081/";
         // const url = "http://106.54.174.38:8081/";
+        // const url = "http://www.rainruner.com:8081/";
+
         const picturePrefix = url+"static/";
         var user;
         var key = Math.random();
@@ -22,10 +33,15 @@
                 data:{},
                 success:function (date) {
                     document.getElementById("head").src = picturePrefix+date.headName+"?"+key;
+                    document.getElementById("name1").innerText = "用户名："+date.userName;
                     alert("欢迎"+date.userName+"进入聊天室");
                     user = date;
                 },
             });
+        }
+        function reFlushHead() {
+            key = Math.random();
+            alert("操作成功！之后的头像都会重新加载^_^");
         }
         function sc(){ document.getElementById("response").scrollTop=document.getElementById("response").scrollHeight;};
     </script>
@@ -43,38 +59,160 @@
                     //取消帮我们格式化数据，是什么就是什么
                     processData:false,
                 }).success(function (data) {
-                    key = Math.random();
-                    document.getElementById("head").src = picturePrefix+data+"?"+key;
-                    alert("头像修改成功");
+                    if (data!=='0'){
+                        key = Math.random();
+                        document.getElementById("head").src = picturePrefix+data+"?"+key;
+                        alert("头像修改成功");
+                    }
+                    else {
+                        alert("文件为空");
+                    }
                 }).error(function () {
                     alert("上传失败");
                 });
             });
         });
+        function testInner(id,title){
+            var config={
+                title:"管理员发布了新的通知！",//通知标题部分  默认 新消息   可选
+                body:title,//通知内容部分
+                inner:true, // 是浏览器仿桌面通知 否首选桌面通知 默认否 可选
+                onclick:function(data){ //监听点击通知   data:可传递参数 可选
+                    window.open(url+"user/getNotice/"+data);
+                },
+                data:id,//可传递参数 可选
+                timeout:10000
+            };
+
+            //仿桌面通知
+            new dToast(config);
+        }
+        function testInner2(userName,msg){
+            var config={
+                title:userName,//通知标题部分  默认 新消息   可选
+                body:msg,//通知内容部分
+                inner:true, // 是浏览器仿桌面通知 否首选桌面通知 默认否 可选
+                onclick:function(data){ //监听点击通知   data:可传递参数 可选
+                    window.open(url+"user/toFriendChat/"+data);
+                },
+                data:userName,//可传递参数 可选
+                timeout:10000
+            };
+
+            //仿桌面通知
+            new dToast(config);
+        }
+        function getChats() {
+            $.ajax({
+                url:url+"user/getRecords",
+                type : "get",
+                data:{},
+                success:function (date) {
+                    var response = $("#response");
+                    var content;
+                    for (var i in date) {
+                        user.headPath = date[i].userName+".jpg"+"?"+key;
+                        if (date[i].userIsVip === 1) {
+                            content = '<div style="width: 100%;">' +
+                                '<img src="' + picturePrefix + user.headPath + '" style="display: inline-block;height: 50px;width: 50px;"/>' +
+                                '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;top: -30px;font-size: 22px;color: #ff0c0c;">' + '[lv' + date[i].userLevel + '] ' + date[i].userName + ':' + '</p>' +
+                                '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;left: 55px;top: -30px;">' + date[i].responseMessage + '</p>' +
+                                '</div>';
+                        } else {
+                            content = '<div style="width: 100%;">' +
+                                '<img src="' + picturePrefix + user.headPath + '" style="display: inline-block;height: 50px;width: 50px;"/>' +
+                                '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;top: -30px;font-size: 22px;">' + '[lv' + date[i].userLevel + '] ' + date[i].userName + ':' + '</p>' +
+                                '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;left: 55px;top: -30px;">' + date[i].responseMessage +
+                                '</p>' +
+                                '</div>';
+                        }
+                        response.append(content);
+                        //滚轮自动下滑
+                        sc();
+                    }
+                },
+            });
+        }
     </script>
 </head>
 <body onload="connect()" onunload="sendLoginOutMassage()">
+
 <noscript><h2 style="color: #ff0000">貌似你的浏览器不支持websocket</h2></noscript>
-    <form id="uploadForm" enctype="multipart/form-data">
-        设置你的头像:<input id="file" type="file" name="file" required="required"/>
-    </form>
-    <button id="upload">上传头像</button><img src="?" id="head" style="width:100px;height:100px;"/><br/><br/>
-<div>
-    <div>
-        <button id="connect" onclick="connect();">连接</button>
-        <button id="disconnect" disabled="disabled" onclick="disconnect();">断开连接</button>
-        <button id="logout" onclick="logout()">取消记住密码并退出登录</button>
+<div id="wrapper" style="left:0;">
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+        <div class="headSculpture">
+            <div id="return">
+                <img src="?" id="head" alt="" onkeyup=""/>
+                <form id="uploadForm" enctype="multipart/form-data">
+                    <input id="file" type="file" name="file" required="required"/>
+                </form>
+                <div class="effects">
+                <a id="upload" class="hvr-icon-up">确认修改</a>
+                </div>
+                <p id="name1"></p>
+            </div>
+        </div>
+        <div class="option">
+            <ul>
+                <li><img src="../static/images/home.png" alt=""/>
+                    <a class="hvr-glow" onclick="reFlushHead()">重新获取聊天头像</a>
+                </li>
+                <li><img src="../static/images/works.png" alt=""/>
+                    <a id="connect" onclick="connect();" class="hvr-ripple-in">连接</a>
+                </li>
+                <li><img src="../static/images/release.png" alt=""/>
+                    <a id="disconnect" disabled="disabled" onclick="disconnect();" class="hvr-outline-out">断开连接</a>
+                </li>
+                <li><img src="../static/images/collection.png" alt=""/>
+                    <a id="logout" onclick="logout()" class="hvr-shutter-in-vertical">退出登录</a>
+                </li>
+                <li><img src="../static/images/setup.png" alt=""/>
+                    <a id="getList" onclick="getOnlineList()" class="hvr-shutter-in-horizontal">获取在线名单</a>
+                </li>
+                <li>
+                    <a onclick="window.location.href=url+'user/getAllInfo';" class="hvr-underline-from-left">查看修改个人信息</a>
+                </li>
+                <li>
+                    <a onclick="window.location.href=url+'toResearch';" class="hvr-underline-from-left">查找用户</a>
+                </li>
+                <li>
+                    <a onclick="window.location.href=url+'user/getUserFriends';" class="hvr-underline-from-left">好友列表</a>
+                </li>
+                <li>
+                    <a onclick="window.location.href=url+'user/getAllNotices';" class="hvr-underline-from-left">通知列表</a>
+                </li>
+                <li th:if="${myInfo.userIsVip} eq 0">
+                    <a onclick="window.location.href=url+'user/toUpKey';" class="hvr-underline-from-left">开通会员</a>
+                </li>
+            </ul>
+        </div>
     </div>
-    <button id="getList" onclick="getOnlineList()">获取在线名单</button>
-    <br/>
-    <a id="loginUser" style="color: lightseagreen"></a><br/>
-    目前在线人数：<a id="loginNumber" style="color: lightseagreen"></a>
-    <div id="conversationDiv">
-        <p id="response" style="width:400px;height:400px;overflow:auto;"></p>
-        请输入私聊目标用户名（默认为群发）：<input type="text" id="toUserName"/>
-        请输入发送内容：<input type="text" id="context" required="required"/><button id="sendName" onclick="sendName();">发送</button>
+    <!-- 侧边栏按钮 -->
+    <button id="b1"></button>
+    <!-- 内容区域 -->
+    <div class="banner">
+        <div class="banner-1">
+            <div>
+                <br/>
+                <a id="loginUser" style="color: lightseagreen"></a><br/>
+                目前在线人数：<a id="loginNumber" style="color: lightseagreen"></a>
+            </div>
+        </div>
+        <div>
+            <div id="conversationDiv">
+                <p id="response" style="width:400px;height:600px;overflow:auto;margin: 0 auto;"></p>
+                <div style="width: 800px;margin: 0 auto;">
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    请输入发送内容：<input type="text" id="responseMessage" required="required"/><button id="sendName" onclick="sendName();">发送</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
 
 <script type="text/javascript">
     var stompClient = null;
@@ -92,6 +230,7 @@
     }
     function connect() {
         getM();
+        getChats();
         // 连接 SockJs 的 endpoint 名称为 "/endpointNasus"
         var socket = new SockJS('/endpointNasus');
         // 使用 STOMP 子协议的 WebSocket 客户端
@@ -106,18 +245,21 @@
                     showResponse(JSON.parse(respnose.body));
                 }
             });
-            stompClient.subscribe('/user/siChat/send', function(chat){
-                // 展示私聊信息
-                if (chat.body!==null){
-                    showResponse(JSON.parse(chat.body));
-                }
-            });
             stompClient.subscribe('/nasus/getLoginShow', function(respnose){
                 showLogin(JSON.parse(respnose.body));
             });
             stompClient.subscribe('/nasus/adminControl', function(respnose){
-                //管理员强制刷新页面
-                location.reload();
+                //接收管理员通知
+                var notice = JSON.parse(respnose.body);
+                if (notice!==null) {
+                    testInner(notice.noticeId,notice.noticeTitle)
+                }
+            });
+            stompClient.subscribe('/user/siChat/si', function(chat){
+                if (chat.body!==null){
+                    var msg = JSON.parse(chat.body);
+                    testInner2(msg.userName,msg.responseMessage);
+                }
             });
             //发送上线消息
             sendLoginMassage();
@@ -157,22 +299,10 @@
     }
     function sendName() {
         // 向服务端发送消息
-        var context = $('#context').val();
-        var toUserName = $('#toUserName').val();
-        if (toUserName===user.userName){
-            alert("建议自言自语^_^");
-        }
-        else {
-            if (toUserName === ""){
-                // 通过 stompClient.send 向 /hello （服务端）发送信息，对应控制器 @MessageMapping 中的定义
-                stompClient.send("/all", {}, JSON.stringify({ 'context': context }));
-                $('#context').val("");
-            }
-            else {
-                stompClient.send("/send", {}, JSON.stringify({ 'responseMessage': context,'toUserName': toUserName }));
-                $('#context').val("");
-            }
-        }
+        var responseMessage = $('#responseMessage').val();
+        // 通过 stompClient.send 向 /hello （服务端）发送信息，对应控制器 @MessageMapping 中的定义
+        stompClient.send("/all", {}, JSON.stringify({ 'responseMessage': responseMessage }));
+        $('#responseMessage').val("");
     }
     function sendLoginMassage() {
         // 向服务端发送上线消息
@@ -192,7 +322,7 @@
                 content = '<div style="width: 100%;">' +
                     '<p style=" width:300px;font-size: 12px;margin:0 0;">' +'[私聊给'+ message.toUserName +']'+ '</p>' +
                     '<img src="' + picturePrefix+user.headPath + '" style="display: inline-block;height: 50px;width: 50px;"/>' +
-                    '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;top: -30px;font-size: 22px;">' + message.userName +':'+ '</p>' +
+                    '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;top: -30px;font-size: 22px;">' +'[lv'+ message.userLevel+'] '+ message.userName +':'+ '</p>' +
                     '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;left: 55px;top: -30px;">' + message.responseMessage +
                     '</p>' +
                     '</div>';
@@ -200,18 +330,28 @@
                 content = '<div style="width: 100%;">' +
                     '<p style=" width:300px;font-size: 12px;margin:0 0;">' +'[来自私聊]'+ '</p>' +
                     '<img src="' + picturePrefix+user.headPath + '" style="display: inline-block;height: 50px;width: 50px;"/>' +
-                    '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;top: -30px;font-size: 22px;">' + message.userName +':'+ '</p>' +
+                    '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;top: -30px;font-size: 22px;">' +'[lv'+ message.userLevel+'] '+  message.userName +':'+ '</p>' +
                     '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;left: 55px;top: -30px;">' + message.responseMessage +
                     '</p>' +
                     '</div>';
             }
         }else {
-            content = '<div style="width: 100%;">' +
-                '<img src="' + picturePrefix+user.headPath + '" style="display: inline-block;height: 50px;width: 50px;"/>' +
-                '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;top: -30px;font-size: 22px;">' + message.userName +':'+ '</p>' +
-                '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;left: 55px;top: -30px;">' + message.responseMessage +
-                '</p>' +
-                '</div>';
+            if (message.userIsVip===1){
+                content = '<div style="width: 100%;">' +
+                    '<img src="' + picturePrefix+user.headPath + '" style="display: inline-block;height: 50px;width: 50px;"/>' +
+                    '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;top: -30px;font-size: 22px;color: #ff0c0c;">' +'[lv'+ message.userLevel+'] '+  message.userName +':'+ '</p>' +
+                    '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;left: 55px;top: -30px;">' + message.responseMessage + '</p>' +
+                    '</div>';
+            }
+            else {
+                content = '<div style="width: 100%;">' +
+                    '<img src="' + picturePrefix+user.headPath + '" style="display: inline-block;height: 50px;width: 50px;"/>' +
+                    '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;top: -30px;font-size: 22px;">' +'[lv'+ message.userLevel+'] '+  message.userName +':'+ '</p>' +
+                    '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;left: 55px;top: -30px;">' + message.responseMessage +
+                    '</p>' +
+                    '</div>';
+
+            }
         }
         response.append(content);
         //滚轮自动下滑

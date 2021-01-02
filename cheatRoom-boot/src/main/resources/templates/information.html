@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:margin="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>个人信息查看与修改</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+
+    <script>
+        const url = "http://localhost:8081/";
+        // const url = "http://106.54.174.38:8081/";
+        // const url = "http://www.rainruner.com:8081/";
+        const picturePrefix = url+"static/";
+        var user;
+        var key = Math.random();
+        function change() {
+                var formData = new FormData($('#uploadForm')[0]);
+                $.ajax({
+                    type: 'post',
+                    url: url+"user/fileUpload", //上传文件的请求路径必须是绝对路劲
+                    data: formData,
+                    //ajax2.0可以不用设置请求头，但是jq帮我们自动设置了，这样的话需要我们自己取消掉
+                    contentType:false,
+                    //取消帮我们格式化数据，是什么就是什么
+                    processData:false,
+                }).success(function (data) {
+                    if (data!=='0'){
+                        key = Math.random();
+                        document.getElementById("head").src = picturePrefix+data+"?"+key;
+                        alert("头像修改成功");
+                    }
+                    else {
+                        alert("文件为空");
+                    }
+                }).error(function () {
+                    alert("上传失败");
+                });
+        }
+        function change2() {
+            $.ajax({
+                url:url+"user/changeInfo",
+                type : "post",
+                data:{"userName":$("#name").val(),"userIntroduce":$("#intr").val()},
+                success:function (date) {
+                    if (date==="1"){
+                        alert("修改成功！请重新登录");
+                        window.location.href=url+"/toLogin";
+                    }
+                    else if (date==="2"){
+                        alert("修改成功！");
+                    }
+                    else {
+                        alert("修改失败！");
+                    }
+
+                },
+            });
+        }
+        function getM() {
+            $.ajax({
+                url:url+"user/getMessage",
+                type : "get",
+                data:{"userId":$("#userId").val()},
+                success:function (date) {
+                    user = date;
+                },
+            });
+        }
+        function goodUser() {
+            $.ajax({
+                url:url+"user/goodUser",
+                type : "post",
+                data:{"userId":$("#userId").val()},
+                success:function (date) {
+                    if (date==="1"){
+                        document.getElementById("goodCount").innerText = user.goodCount+1;
+                    }
+                },
+            });
+        }
+        function addFriend() {
+            $.ajax({
+                url:url+"user/addFriend",
+                type : "post",
+                data:{"userId":$("#userId").val()},
+                success:function (date) {
+                    if (date==="1") {
+                        alert("添加成功！");
+                    }
+                    else {
+                        alert("添加失败！");
+                    }
+                },
+            });
+        }
+    </script>
+</head>
+<body style="text-align:center;" onload="getM()">
+<input type="hidden" id="userId" th:value="${allInfo.userId}"/>
+<td th:if="${myInfo} eq wang">
+    <button><a href="/admin/nasus">返回管理员页面</a></button><br/>
+</td>
+<td th:if="${myInfo} ne wang">
+    <button><a href="/user/toNasus">返回</a></button><br/>
+</td>
+<button style="margin: 10px;" onclick="addFriend()">添加好友</button><br/>
+<a>点赞数：</a><a th:text="${allInfo.goodCount}" th:value="${allInfo.goodCount}" id="goodCount"></a><button style="margin: 10px;" onclick="goodUser()">点赞</button><br/>
+
+<img th:src="${allInfo.headName}" alt="" id="head" style="width: 500px"/><br/>
+<td th:switch = "${myInfo}">
+    <form th:case = "${allInfo.userName}" id="uploadForm" enctype="multipart/form-data">
+        <input id="file" type="file" name="file" required="required"/>
+    </form>
+</td>
+<td th:switch = "${myInfo}">
+    <button th:case = "${allInfo.userName}" id="upload" onclick="change()">确认修改</button><br/><br/>
+</td>
+<div>
+    用户名：<input type="text" th:value="${allInfo.userName}" id="name"/><br/><br/>
+</div>
+<div>
+    是否为vip：<a th:text="${allInfo.userIsVip2}"></a><br/><br/>
+</div>
+<div>
+    用户等级：lv <a th:text="${allInfo.userLevel}"></a><br/><br/>
+</div>
+<div>
+    用户自我介绍：<input type="text" th:value="${allInfo.userIntr2}" id="intr"/><br/><br/>
+</div>
+<td th:switch = "${myInfo}">
+    <button th:case = "${allInfo.userName}" onclick="change2()">确认修改</button>
+</td>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>好友私聊界面</title>
+    <link href="http://www.jq22.com/jquery/font-awesome.4.6.0.css" rel="stylesheet" media="all"/>
+    <script src="https://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script src="../static/js/sidebar.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/stomp.js/2.3.3/stomp.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/sockjs-client/1.5.0/sockjs.js"></script>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        const url = "http://localhost:8081/";
+        // const url = "http://106.54.174.38:8081/";
+        // const url = "http://www.rainruner.com:8081/";
+        var key = Math.random();
+        const picturePrefix = url+"static/";
+
+        function getM() {
+            $.ajax({
+                url:url+"user/getMessage",
+                type : "get",
+                data:{},
+                success:function (date) {
+                    user = date;
+                },
+            });
+            getChats();
+        }
+        function testInner(id,title){
+            var config={
+                title:"管理员发布了新的通知！",//通知标题部分  默认 新消息   可选
+                body:title,//通知内容部分
+                inner:true, // 是浏览器仿桌面通知 否首选桌面通知 默认否 可选
+                onclick:function(data){ //监听点击通知   data:可传递参数 可选
+                    window.open(url+"user/getNotice/"+data);
+                },
+                data:id,//可传递参数 可选
+                timeout:10000
+            };
+
+            //仿桌面通知
+            new dToast(config);
+        }
+        function sc(){ document.getElementById("response").scrollTop=document.getElementById("response").scrollHeight;};
+
+        function getChats() {
+            $.ajax({
+                url:url+"user/getSiChats",
+                type : "get",
+                data:{"toUserName": $('#toUserName').val()},
+                success:function (date) {
+                    var response = $("#response");
+                    var content;
+                    for (var i in date) {
+                        user.headPath = date[i].userName+".jpg"+"?"+key;
+                        if (date[i].userIsVip === 1) {
+                            content = '<div style="width: 100%;">' +
+                                '<img src="' + picturePrefix + user.headPath + '" style="display: inline-block;height: 50px;width: 50px;"/>' +
+                                '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;top: -30px;font-size: 22px;color: #ff0c0c;">' + '[lv' + date[i].userLevel + '] ' + date[i].userName + ':' + '</p>' +
+                                '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;left: 55px;top: -30px;">' + date[i].responseMessage + '</p>' +
+                                '</div>';
+                        } else {
+                            content = '<div style="width: 100%;">' +
+                                '<img src="' + picturePrefix + user.headPath + '" style="display: inline-block;height: 50px;width: 50px;"/>' +
+                                '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;top: -30px;font-size: 22px;">' + '[lv' + date[i].userLevel + '] ' + date[i].userName + ':' + '</p>' +
+                                '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;left: 55px;top: -30px;">' + date[i].responseMessage +
+                                '</p>' +
+                                '</div>';
+                        }
+                        response.append(content);
+                        //滚轮自动下滑
+                        sc();
+                    }
+                },
+            });
+        }
+    </script>
+</head>
+<body onload="connect()">
+<button><a href="/user/toNasus">返回</a></button><br/>
+<script>
+    document.addEventListener("keydown",enter);
+</script>
+<div class="banner">
+    <div>
+        <div id="conversationDiv">
+            <p id="response" style="width:400px;height:600px;overflow:auto;margin: 0 auto;"></p>
+            <div style="width: 800px;margin: 0 auto;">
+                发送给：<input type="hidden" th:value="${toUserName}" id="toUserName" th:text="${toUserName}"/>
+                请输入发送内容：<input type="text" id="responseMessage" required="required"/><button id="sendName" onclick="sendName();">发送</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    var stompClient2 = null;
+    var user;
+    document.addEventListener("keydown",enter);
+    function enter(event){
+        if(event.keyCode===13){//回车触发发送按键
+            sendName();
+        }
+    }
+
+    function connect() {
+        getM();
+        // 连接 SockJs 的 endpoint 名称为 "/endpointNasus"
+        var socket = new SockJS('/endpointNasus');
+        // 使用 STOMP 子协议的 WebSocket 客户端
+        stompClient2 = Stomp.over(socket);
+        stompClient2.connect({}, function(frame) {
+            console.log('Connected: ' + frame);
+            stompClient2.subscribe('/user/siChat/send', function(chat){
+                // 展示私聊信息
+                if (chat.body==="0"){
+                    alert("对方不在线哦~");
+                }
+                else{
+                    if (chat.body!==null){
+                        showResponse(JSON.parse(chat.body));
+                    }
+                }
+            });
+            stompClient2.subscribe('/nasus/adminControl', function(respnose){
+                //接收管理员通知
+                var notice = JSON.parse(respnose.body);
+                if (notice!==null) {
+                    testInner(notice.noticeId,notice.noticeTitle)
+                }
+            });
+        });
+    }
+    function sendName() {
+        // 向服务端发送消息
+        var responseMessage = $('#responseMessage').val();
+        var toUserName = $('#toUserName').val();
+        stompClient2.send("/send", {}, JSON.stringify({ 'responseMessage': responseMessage,'toUserName': toUserName }));
+        $('#responseMessage').val("");
+    }
+    function showResponse(message) {
+        var response = $("#response");
+        user.headPath = message.userName+".jpg"+"?"+key;
+        var content;
+        // 接收返回的消息
+        if (message.userIsVip===1){
+            content = '<div style="width: 100%;">' +
+                '<img src="' + picturePrefix+user.headPath + '" style="display: inline-block;height: 50px;width: 50px;"/>' +
+                '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;top: -30px;font-size: 22px;color: #ff0c0c;">' +'[lv'+ message.userLevel+'] '+  message.userName +':'+ '</p>' +
+                '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;left: 55px;top: -30px;">' + message.responseMessage + '</p>' +
+                '</div>';
+        }
+        else {
+            content = '<div style="width: 100%;">' +
+                '<img src="' + picturePrefix+user.headPath + '" style="display: inline-block;height: 50px;width: 50px;"/>' +
+                '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;top: -30px;font-size: 22px;">' +'[lv'+ message.userLevel+'] '+  message.userName +':'+ '</p>' +
+                '<p style="display: inline-block;margin: 0 2px; width: 300px;position: relative;left: 55px;top: -30px;">' + message.responseMessage +
+                '</p>' +
+                '</div>';
+        }
+        response.append(content);
+        //滚轮自动下滑
+        sc();
+    }
+</script>

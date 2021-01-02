@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>查看聊天记录</title>
+</head>
+<body>
+<p th:text="${msg}"></p>
+    <tr  th:each="chat,userStat : ${records}">
+        <div style="width: 100%;margin: 10px 0;">
+            <img th:src="${chat.userHead}" style="display: inline-block;height: 50px;width: 50px;" alt=""/>
+            <p th:text="${chat.userName}" style="display: inline-block;margin: 0 2px; width: 300px;position: relative;top: -30px;font-size: 22px;"></p>
+            <p th:text="${chat.responseMessage}" style="display: inline-block;margin: 0 2px;width: 300px;position: relative;top: -3px;right: 305px;"></p>
+        </div>
+    </tr>
+</body>
+</html>

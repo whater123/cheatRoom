@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>通知列表页面</title>
+</head>
+<body>
+<input type="hidden" th:value="${myInfo.userId}" id="userId"/>
+<a th:text="${msg}"></a>
+<button><a href="/user/toNasus">返回</a></button><br/>
+<tr  th:each="notice,userStat : ${noticeList}">
+    <div style="width: 100%;margin: 10px 0;">
+        <form action="/user/toNotice">
+            <button th:value="${notice.noticeId}" th:text="${notice.noticeTitle}" name="noticeId" type="submit"></button>
+            通知发布时间：<a th:text="${notice.noticeTime}"></a>
+            通知被阅次数：<a th:text="${notice.noticeReadCount}"></a>
+            <br/>
+        </form>
+    </div>
+</tr>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>秘钥页面</title>
+</head>
+<body>
+<tr  th:each="key,userStat : ${keyList}">
+    <div style="width: 100%;margin: 10px 0;">
+        keyID:<a th:text="${key.key.keyId}"></a><br/>
+        key：<a th:text="${key.key.keyContext}"></a><br/>
+        被创建时间：<a th:text="${key.key.keyCreateTime}"></a><br/>
+        <td th:if="${key.user.userId} ne 0">
+            被使用时间：<a th:text="${key.key.keyUseTime}"></a>
+            <form action="/admin/getAllInfo">
+                被使用对象：<button th:text="${key.user.userName}" th:value="${key.user.userName}" name="userName"></button>
+            </form>
+        </td>
+        <br/><br/>
+    </div>
+</tr>
+</body>
+</html>
