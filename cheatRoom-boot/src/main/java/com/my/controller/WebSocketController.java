@@ -37,6 +37,7 @@ public class WebSocketController {
     @Autowired
     AdminService adminService;
 
+    //群聊消息
     @MessageMapping("/all") // @MessageMapping 和 @RequestMapping 功能类似，浏览器向服务器发起消息，映射到该地址。
     @SendTo("/nasus/getResponse") // 如果服务器接受到了消息，就会对订阅了 @SendTo 括号中的地址的浏览器发送消息。
     public Chat say(Principal principal, Chat chat) throws Exception {
@@ -58,6 +59,7 @@ public class WebSocketController {
         return chat;
     }
 
+    //上线消息
     @MessageMapping("/loginShow")
     @SendTo("/nasus/getLoginShow")
     public LoginShow userLoginShow(Principal principal, LoginShow isLogin){
@@ -80,6 +82,7 @@ public class WebSocketController {
         }
     }
 
+    //管理员发布公告通知
     @MessageMapping("/admin")
     @SendTo("/nasus/adminControl")
     public Notice adminControl(Notice notice){
@@ -89,6 +92,7 @@ public class WebSocketController {
         return b?notice:null;
     }
 
+    //私聊消息
     @MessageMapping("/send")
     public void send(Principal principal,Chat chat){
         chat.setUserName(principal.getName());

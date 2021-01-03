@@ -71,12 +71,14 @@ public class AdminController {
         }
     }
 
+    //生成会员秘钥
     @ResponseBody
     @RequestMapping(value = "/getVipKey")
     public String getVipKey(){
         return adminService.getVipKey();
     }
 
+    //获取会员秘钥
     @RequestMapping(value = "/getAllKeys")
     public String getAllKeys(HttpServletRequest request){
         List<KeyShow> allKeys = adminService.getAllKeys();

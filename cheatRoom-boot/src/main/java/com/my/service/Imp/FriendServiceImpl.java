@@ -23,6 +23,7 @@ public class FriendServiceImpl implements FriendSerivce {
     @Autowired
     UserService userService;
 
+    //添加好友
     @Override
     public boolean addFriend(int userId1, int userId2) {
         if (userId1==userId2){
@@ -43,7 +44,7 @@ public class FriendServiceImpl implements FriendSerivce {
             return insert==1;
         }
     }
-
+    //获取该用户的所有好友
     @Override
     public List<FriendShow> getUserFriends(int userId) {
         List<FriendShow> list = new ArrayList<>();

@@ -21,18 +21,17 @@ public class RecordServiceImpl implements RecordService {
     @Autowired
     UserService userService;
 
+    //存储群聊消息
     @Override
     public void addAllRecord(Chat chat){
-
         ListOperations<String, Object> ops = redisTemplate.opsForList();
-
         if (ops.size("qun") >= 50){
             Object qun = ops.leftPop("qun");
             System.out.println(qun+" be pop");
         }
         ops.rightPush("qun",chat);
     }
-
+    //获取群聊消息记录
     @Override
     public List<Chat> getRecords(){
         ListOperations<String, Object> ops = redisTemplate.opsForList();
@@ -52,7 +51,7 @@ public class RecordServiceImpl implements RecordService {
         }
         return chats;
     }
-
+    //存储私聊记录
     @Override
     public void addSiChat(Chat chat) {
         HashOperations<String, Object, Object> opsForHash = redisTemplate.opsForHash();
@@ -73,7 +72,7 @@ public class RecordServiceImpl implements RecordService {
             opsForHash.put("si",set.toString(),chats);
         }
     }
-
+    //获取私聊记录
     @Override
     public List<Chat> getSiChats(String userName ,String toUserName) {
         HashOperations<String, Object, Object> opsForHash = redisTemplate.opsForHash();

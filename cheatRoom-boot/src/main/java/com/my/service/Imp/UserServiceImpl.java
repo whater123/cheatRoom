@@ -62,6 +62,7 @@ public class UserServiceImpl implements UserService {
         return update==1;
     }
 
+    //点赞用户
     @Override
     public boolean goodUser(int beUserId, int doUserId) {
         try {
@@ -85,7 +86,7 @@ public class UserServiceImpl implements UserService {
         }
         return true;
     }
-
+    //获取点赞个数
     @Override
     public int getGoodCount(int userId) {
         HashOperations<String, Object, Object> opsForHash = redisTemplate.opsForHash();
@@ -126,7 +127,7 @@ public class UserServiceImpl implements UserService {
         }
         return (int) opsForHash.get("level", String.valueOf(userId));
     }
-
+    //获取全部通知
     @Override
     public List<Notice> getAllNotice() {
         List<Notice> notices = noticeMapper.selectList(null);
@@ -136,12 +137,12 @@ public class UserServiceImpl implements UserService {
         }
         return notices;
     }
-
+    //获取某个通知
     @Override
     public Notice getNoticeById(int noticeId) {
         return noticeMapper.selectById(noticeId);
     }
-
+    //用户阅读通知
     @Override
     public boolean readNotice(int noticeId, int userId) {
         try{
@@ -162,7 +163,7 @@ public class UserServiceImpl implements UserService {
         }
         return true;
     }
-
+    //获取通知的阅读量
     @Override
     public int getNoticeReadCount(int noticeId) {
         HashOperations<String, Object, Object> opsForHash = redisTemplate.opsForHash();

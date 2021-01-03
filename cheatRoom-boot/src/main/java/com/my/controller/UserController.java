@@ -109,6 +109,7 @@ public class UserController{
         }
     }
 
+    //获取用户所有信息并跳转页面
     @RequestMapping(value = "/getAllInfo")
     public String getAllInfo(Principal principal,HttpServletRequest request,String userName){
         String name = principal.getName();
@@ -138,6 +139,7 @@ public class UserController{
         }
     }
 
+    //更改个人信息
     @ResponseBody
     @RequestMapping(value = "/changeInfo")
     public String changeInfo(Principal principal,User user){
@@ -163,6 +165,7 @@ public class UserController{
         return b&&b1&&b2?"1":"0";
     }
 
+    //获取该用户所有的好友
     @RequestMapping(value = "/getUserFriends")
     public String getUserFriends(Principal principal,HttpServletRequest request){
         String name = principal.getName();
@@ -173,6 +176,7 @@ public class UserController{
         return "friendList";
     }
 
+    //添加好友
     @ResponseBody
     @PostMapping(value = "/addFriend")
     public String addFriend(Principal principal,String userId){
@@ -202,6 +206,7 @@ public class UserController{
         return "friendChat";
     }
 
+    //跳转到通知页面
     @RequestMapping(value = "/getNotice/{noticeId}")
     public String getNotice(@PathVariable("noticeId") String noticeId,HttpServletRequest request,Principal principal){
         String name = principal.getName();
@@ -218,6 +223,7 @@ public class UserController{
         return "notice";
     }
 
+    //获取全部通知
     @RequestMapping(value = "/getAllNotices")
     public String getAllNotices(Principal principal,HttpServletRequest request){
         String name = principal.getName();
@@ -245,6 +251,7 @@ public class UserController{
         return "notice";
     }
 
+    //用户使用秘钥开通会员
     @ResponseBody
     @RequestMapping(value = "/useKey")
     public String useKey(Principal principal,String key){

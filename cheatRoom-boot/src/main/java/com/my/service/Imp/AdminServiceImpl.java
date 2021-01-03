@@ -44,6 +44,7 @@ public class AdminServiceImpl implements AdminService {
         return delete==1;
     }
 
+    //生成会员秘钥
     @Override
     public String getVipKey() {
         String s = IdUtil.randomUUID();
@@ -51,6 +52,7 @@ public class AdminServiceImpl implements AdminService {
         return s;
     }
 
+    //获取全部的秘钥信息
     @Override
     public List<KeyShow> getAllKeys() {
         List<Key> keys = keyMapper.getAllKeys();

@@ -1,10 +1,8 @@
 package com.my.pojo.base;
 
 import com.baomidou.mybatisplus.annotation.TableField;
-
 import java.sql.Timestamp;
 import java.util.Date;
-
 /**
  * @author w
  */
