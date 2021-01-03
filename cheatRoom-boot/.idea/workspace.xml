@@ -2,219 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="947ecbf8-5e1f-4e59-9a40-8e73ee340b60" name="Default Changelist" comment="updata">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/Config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/dao/FriendMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/dao/KeyMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/dao/NoticeMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/pojo/base/Friend.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/pojo/base/Key.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/pojo/base/Notice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/pojo/view/FriendShow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/pojo/view/KeyShow.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/service/AdminService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/service/FriendSerivce.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/service/Imp/AdminServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/service/Imp/FriendServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/service/Imp/RecordServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/service/Imp/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/service/RecordService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/my/util/RandomUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/friendChat.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/friendList.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/information.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/keyList.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/myError.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/notice.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/noticeList.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/research.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/upVip.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/my/HelloWordTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/Config/ShiroConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/Config/ShiroConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/Config/crossConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/Config/crossConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/constant/SystemConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/constant/SystemConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/controller/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/controller/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/controller/GuestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/controller/GuestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/controller/ViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/controller/ViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/controller/WebSocketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/controller/WebSocketController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/dao/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/dao/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pojo/Chat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/pojo/view/Chat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pojo/Client2ServerMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pojo/LoginShow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/pojo/view/LoginShow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pojo/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/my/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/my/pojo/base/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/nasus.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/nasus.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/nasus2.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/nasus2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/TestPoint.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT.war.original" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/QQ.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/com/my/Config/ViewConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/com/my/Config/ViewConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/com/my/Config/WebSocketConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/com/my/Config/WebSocketConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/com/my/Config/crossConfig$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/com/my/Config/crossConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/com/my/HelloWord.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/com/my/HelloWord.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/com/my/War.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/com/my/War.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/com/my/constant/LoginQQConstant.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/com/my/constant/LoginQQConstant.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/com/my/controller/LoginController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/com/my/controller/LoginController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/com/my/controller/ViewController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/com/my/controller/ViewController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/com/my/controller/WebSocketController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/com/my/controller/WebSocketController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/com/my/pojo/Client2ServerMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/com/my/pojo/Client2ServerMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/com/my/pojo/Server2ClientMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/com/my/pojo/Server2ClientMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/templates/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/templates/nasus.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/classes/templates/nasus2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/aether-api-1.7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/aether-impl-1.7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/aether-spi-1.7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/aether-util-1.7.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/android-json-0.0.20131108.vaadin1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/animal-sniffer-annotations-1.17.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/asm-6.0_ALPHA.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/checker-qual-2.5.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/classmate-1.3.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/commons-beanutils-1.9.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/commons-codec-1.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/commons-collections-3.2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/commons-io-1.3.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/commons-lang3-3.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/error_prone_annotations-2.2.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/failureaccess-1.0.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/fastjson-1.2.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/groovy-2.4.13.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/guava-27.1-jre.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/hibernate-validator-5.3.6.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/httpclient-4.3.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/httpcore-4.4.8.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/j2objc-annotations-1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/jackson-annotations-2.8.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/jackson-core-2.8.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/jackson-databind-2.8.10.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/javassist-3.21.0-GA.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/jboss-logging-3.3.1.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/jcl-over-slf4j-1.7.25.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/jsqlparser-1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/jsr305-3.0.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/jul-to-slf4j-1.7.25.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/log4j-over-slf4j-1.7.25.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/logback-classic-1.1.11.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/logback-core-1.1.11.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/maven-aether-provider-3.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/maven-artifact-3.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/maven-compiler-plugin-3.6.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/maven-core-3.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/maven-model-3.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/maven-model-builder-3.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/maven-plugin-api-3.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/maven-repository-metadata-3.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/maven-settings-3.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/maven-settings-builder-3.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/maven-shared-incremental-1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/maven-shared-utils-3.1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/mybatis-3.4.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/mybatis-plus-3.0.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/mybatis-plus-annotation-3.0.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/mybatis-plus-boot-starter-3.0.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/mybatis-plus-core-3.0.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/mybatis-plus-extension-3.0.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/mybatis-plus-generator-3.0.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/mybatis-spring-1.3.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/mysql-connector-java-8.0.15.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/ognl-3.0.8.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/plexus-cipher-1.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/plexus-classworlds-2.2.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/plexus-compiler-api-2.8.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/plexus-compiler-javac-2.8.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/plexus-compiler-manager-2.8.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/plexus-component-annotations-1.5.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/plexus-interpolation-1.14.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/plexus-sec-dispatcher-1.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/plexus-utils-2.0.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/protobuf-java-3.6.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/qdox-2.0-M5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/shiro-core-1.3.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/shiro-spring-1.3.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/shiro-web-1.3.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/sisu-guice-2.1.7-noaop.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/sisu-inject-bean-1.4.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/sisu-inject-plexus-1.4.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/slf4j-api-1.7.25.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/snakeyaml-1.17.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/spring-aop-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/spring-beans-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-autoconfigure-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-configuration-processor-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-starter-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-starter-jdbc-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-starter-logging-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-starter-thymeleaf-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-starter-web-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/spring-boot-starter-websocket-1.5.9.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/spring-context-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/spring-core-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/spring-expression-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/spring-jdbc-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/spring-messaging-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/spring-tx-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/spring-web-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/spring-webmvc-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/spring-websocket-4.3.13.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/thymeleaf-2.1.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/thymeleaf-layout-dialect-1.4.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/thymeleaf-spring4-2.1.6.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/tomcat-jdbc-8.5.23.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/tomcat-juli-8.5.23.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/unbescape-1.1.0.RELEASE.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Spirng_boot-1.0-SNAPSHOT/WEB-INF/lib/validation-api-1.1.0.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/cheat.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/cheat.war" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/Config/ShiroConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/Config/ShiroConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/Config/crossConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/Config/crossConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/constant/SystemConstant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/constant/SystemConstant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/controller/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/controller/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/controller/GuestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/controller/GuestController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/controller/ViewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/controller/ViewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/controller/WebSocketController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/controller/WebSocketController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/dao/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/my/dao/UserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/pojo/Chat.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/pojo/Client2ServerMessage.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/pojo/LoginShow.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/pojo/Role.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/my/pojo/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/nasus.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/nasus.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/nasus2.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/nasus2.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-cli/createdFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-cli/inputFiles.lst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/TestPoint.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -437,11 +225,6 @@
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
             </expand>
             <select />
           </treeState>
@@ -550,6 +333,8 @@
       <workItem from="1609473328096" duration="8403000" />
       <workItem from="1609504446155" duration="15000" />
       <workItem from="1609556759075" duration="2000000" />
+      <workItem from="1609568799151" duration="24000" />
+      <workItem from="1609660911514" duration="2984000" />
     </task>
     <servers />
   </component>
@@ -597,10 +382,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="331" y="10" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1609138230747" />
-    <state x="549" y="170" key="FileChooserDialogImpl" timestamp="1609504460168">
+    <state x="549" y="170" key="FileChooserDialogImpl" timestamp="1609568821601">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1609504460168" />
+    <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1609568821601" />
     <state width="1247" height="107" key="GridCell.Tab.0.bottom" timestamp="1609560013261">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
